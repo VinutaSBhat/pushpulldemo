@@ -5,7 +5,7 @@ using namespace std;
 class A
 {
     public:
-    int balance=1000,cash;
+    int balance=800,cash;
     
     int withdraw();
     int deposit();
