@@ -1,0 +1,77 @@
+// code for updating bank balance
+
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+class A
+{
+public:
+    int balance = 1000, cash;
+
+    int withdraw();
+    int deposit();
+};
+int A::withdraw()
+{
+    int cash, tcash;
+    cout << "Enter amount to be withdrawn" << endl;
+    cin >> cash;
+    if (cash > balance)
+    {
+        cout << "No sufficient balance" << endl;
+        return 0;
+    }
+
+    else
+    {
+        balance = balance - cash;
+        cout << "Cash withdrawn:" << cash << endl
+             << "New balance:" << balance << endl;
+        return balance;
+    }
+}
+
+int A::deposit()
+{
+    int cash, tcash;
+    cout << "Enter amount to be deposited" << endl;
+    cin >> cash;
+    balance = balance + cash;
+    cout << "Cash deposited:" << cash << endl
+         << "New balance:" << balance << endl;
+    return balance;
+}
+
+int main()
+{
+    A o;
+    int balance = 1000, action;
+    while (1)
+    {
+        cout << "Enter action to be performed" << endl
+             << "1.Check balance" << endl
+             << "2.Withdraw cash" << endl
+             << "3.Deposit money" << endl
+             << "4.Exit" << endl;
+        cin >> action;
+        switch (action)
+        {
+        case 1:
+            cout << "Total balance:" << balance << endl;
+            break;
+        case 2:
+            balance = o.withdraw();
+            break;
+        case 3:
+            balance = o.deposit();
+            break;
+        case 4:
+            exit(0);
+            break;
+        default:
+            cout << "Invalid operation";
+        }
+        getch();
+    }
+}
